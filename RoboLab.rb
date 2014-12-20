@@ -27,8 +27,8 @@ else
   
 
   robot = Robot.new(  )
-  target = ARGV.join( ' ' )
-  robot.run( target )
+  script = ARGV.join( ' ' )
+  robotOperations.run( robot,script )
 end
 
 

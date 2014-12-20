@@ -64,4 +64,9 @@ end #end of move
 def report(robot)
 puts "#{'robot.name'} is currently placed at spaces #{'robot.x'} and #{'robot.y'} facing #{'robot.face'}"
 end# end of report
+
+#This method makes the robot move or perform the functions as described in the script
+def run(robot, script)
+
+end#end of run
 end #end of Class
