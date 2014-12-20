@@ -5,7 +5,8 @@ class Robot
 #author : Syed Mahdi
 #Date : 20/12/2014
 
-
+require_relative 'model/position'
+require_relative 'service/robotOperations'
 #This method is to initialize the robot with a name, if a name is not provided as an argument the Default name 'Robo' is taken
 def initialize(name = "Robo", x, y, face, position)
     @name = name
