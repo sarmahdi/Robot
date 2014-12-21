@@ -47,9 +47,9 @@ else
 		firstCommand = RobotUtils.tokenize(firstCommand," ")
 		puts firstCommand
 		
-		if firstCommandTokens[0] == "PLACE"
+		if firstCommand[0] == "PLACE"
 		#
-		positionTokens = RobotUtils.tokenize(firstCommandTokens[1], ",")
+		positionTokens = RobotUtils.tokenize(firstCommand[1], ",")
 		position = Position.new(positionTokens[0], positionTokens[1], positionTokens[2])
 		robot = Robot.new(position)
 		robotCommands = linesofCommandsArray.drop(1)

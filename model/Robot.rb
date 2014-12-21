@@ -33,11 +33,25 @@ end
 
 def run(commands)
 	commands.each do |command|
-	puts "..... in Run of Robot..."
-	puts command
-	if commands== "MOVE"
-	#to move...
-	end
+		puts "..... in Run of Robot... with command #{command}"
+		commandString = command.to_s.strip
+		
+		move = String.new("MOVE")
+		report = String.new("REPORT")
+		if commandString == move
+			#to move...
+			RobotOperations.move(self)
+		end
+		case commandString
+		when "MOVE"
+		RobotOperations.move(self)
+		when "LEFT"
+		RobotOperations.left(self)
+		when "RIGHT"
+		RobotOperations.right(self)
+		when "REPORT"
+		RobotOperations.report(self)
+		end
 	end
 	
 end
