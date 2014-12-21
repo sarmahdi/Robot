@@ -5,14 +5,22 @@ class Robot
 #author : Syed Mahdi
 #Date : 20/12/2014
 
-require_relative 'model/position'
-require_relative 'service/robotOperations'
+#require_relative 'model/position'
+require_relative '../service/robotOperations'
+
+#We want these variables to be accessed from outside.
+attr_accessor :name
+attr_accessor :x
+attr_accessor :y
+attr_accessor :face
+
+
 #This method is to initialize the robot with a name, if a name is not provided as an argument the Default name 'Robo' is taken
-def initialize(name = "Robo", x, y, face, position)
+def initialize(name = "Robo", position)
     @name = name
-	@x = x
-	@y = y
-	@face = face
+	@x = position.x
+	@y = position.y
+	@face = position.face
 	@position = position
 	say_hi
 end #end of initialize
@@ -22,3 +30,17 @@ def say_hi
      puts "Hi I am #{@name}!"
 	 puts "I am at #{@x} and #{@y} facing #{@face}"
 end
+
+def run(commands)
+	commands.each do |command|
+	puts "..... in Run of Robot..."
+	puts command
+	if commands== "MOVE"
+	#to move...
+	end
+	end
+	
+end
+
+
+end #end of Robot

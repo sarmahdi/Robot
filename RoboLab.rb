@@ -34,19 +34,32 @@ else
 	scriptFile =  File.new(@aName,"r")
 	
 	if scriptFile
-		linesArray =  IO.readlines("robolife1.txt")
-		firstLine =  linesArray[0]
-		if !firstLine.start_with? 'PLACE'
+		linesofCommandsArray =  IO.readlines(@aName)
+		puts linesofCommandsArray
+		firstCommand =  linesofCommandsArray[0]
+		#The first command in the script has to be PLACE so that a robot can be created
+		#and placed on a location specified by the coordinates and face given after
+		#PLACE command, PLACE has no other meaning besides creating a Robot on its location.
+		if !firstCommand.start_with? 'PLACE'
 			puts "The first command needs to be 'PLACE',the first command in #{@aName} does not start with PLACE"
+			exit
 		end
-		tokens = RobotUtils.tokenize(firstLine)
-		puts tokens
-		if tokens[0] == "PLACE"
-		#
-		end
-		position = new Position(tokens[1])
+		firstCommand = RobotUtils.tokenize(firstCommand," ")
+		puts firstCommand
 		
-		puts linesArray
+		if firstCommandTokens[0] == "PLACE"
+		#
+		positionTokens = RobotUtils.tokenize(firstCommandTokens[1], ",")
+		position = Position.new(positionTokens[0], positionTokens[1], positionTokens[2])
+		robot = Robot.new(position)
+		robotCommands = linesofCommandsArray.drop(1)
+		puts robotCommands
+		robot.run(robotCommands)
+		end
+		 
+		
+		
+		#robotOperations.run( robot,script )
 	end
    #robot = Robot.new()
   #script = ARGV.join( ' ' )

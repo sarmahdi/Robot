@@ -5,5 +5,14 @@ class Position
 #grid of squares.
 #Author : Syed Mahdi
 
+attr_accessor :x
+attr_accessor :y
+attr_accessor :face
+
 def initialize(x , y , face)
+@x = x
+@y = y
+@face =face
+end
+
 end
